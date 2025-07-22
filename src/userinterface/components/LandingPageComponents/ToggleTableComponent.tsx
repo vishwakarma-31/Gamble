@@ -19,7 +19,7 @@ color?:string;
 defaultTable?:string;
 ClassName?:string;
 containerWidth?:string;
-
+gameType?: string
 }
 interface toggleOption{
   title:string;
@@ -76,7 +76,7 @@ export default  function ToggleTableComponent(props:Props):React.JSX.Element{
         {activeCategory === 'description' && <DescriptionOption />}
 
         {/* BetCalculator */}
-        {activeCategory === 'manual' && <ManualBetOption />}
+        {activeCategory === 'manual' && <ManualBetOption gameType={props.gameType} />}
         {activeCategory === 'auto' && <AutoBetOption />}
         
         {/* wallet */}

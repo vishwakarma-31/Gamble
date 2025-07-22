@@ -35,6 +35,7 @@ const BetCalculatorCases: React.FC<Props> = ({ roleDice, error, difficulty, setD
         defaultTable="manual"
         containerWidth="w-full"
         ClassName="h-10 w-full"
+        gameType='cases'
         toggleOption={toggleOption}
       />
 
