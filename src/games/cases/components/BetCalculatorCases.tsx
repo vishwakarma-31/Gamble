@@ -1,4 +1,3 @@
-// BetCalculatorCases.tsx
 import React, { useState } from 'react';
 import ToggleTableComponent from '../../../userinterface/components/LandingPageComponents/ToggleTableComponent';
 import { FaBriefcase } from 'react-icons/fa6';
@@ -12,8 +11,8 @@ interface Props {
 }
 
 const toggleOption = [
-  { title: "Manual", key: 'manual' },
-  { title: "Auto", key: 'auto' },
+  { title: 'Manual', key: 'manual' },
+  { title: 'Auto', key: 'auto' },
 ];
 
 const BetCalculatorCases: React.FC<Props> = ({ roleDice, error, difficulty, setDifficulty }) => {
@@ -35,15 +34,14 @@ const BetCalculatorCases: React.FC<Props> = ({ roleDice, error, difficulty, setD
         defaultTable="manual"
         containerWidth="w-full"
         ClassName="h-10 w-full"
-        gameType='cases'
+        gameType="cases"
         toggleOption={toggleOption}
       />
 
-      {/* Difficulty */}
       <p className="text-[13px] text-white font-semibold mt-4">Difficulty</p>
       <select
         value={difficulty}
-        onChange={(e) => setDifficulty(e.target.value as 'easy' | 'medium' | 'hard' | 'expert')}
+        onChange={(e) => setDifficulty(e.target.value as any)}
         className="w-full mt-1 h-10 px-3 bg-[#0f212e] text-white text-sm rounded outline-none"
       >
         <option value="easy">Easy</option>
@@ -52,20 +50,14 @@ const BetCalculatorCases: React.FC<Props> = ({ roleDice, error, difficulty, setD
         <option value="expert">Expert</option>
       </select>
 
-      {/* Bet Button */}
       <button
         onClick={handleClick}
-        className="mt-4 w-full h-12 bg-[#00e600] text-black font-semibold rounded hover:bg-[#00cc00] flex items-center justify-center"
         disabled={isShuffling}
+        className="mt-4 w-full h-12 bg-[#00e600] text-black font-semibold rounded hover:bg-[#00cc00] flex items-center justify-center transition-colors"
       >
-        {isShuffling ? (
-          <FaBriefcase className="animate-shake text-xl" />
-        ) : (
-          'Bet'
-        )}
+        {isShuffling ? <FaBriefcase className="animate-shake text-xl" /> : 'Bet'}
       </button>
 
-      {/* Error Message */}
       {error && <p className="text-red-500 text-center text-sm mt-3">{error}</p>}
     </div>
   );
